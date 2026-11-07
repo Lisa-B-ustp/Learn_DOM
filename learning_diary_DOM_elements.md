@@ -1,0 +1,43 @@
+- what is the "document" variable in javascript?
+
+const heading = document.querySelector("h1");
+heading.textContent = "Hello!";
+
+Das document ist ein Objekt eines DOM (Struktur einer Website).
+DOM ist die Darstellung einer Website als "Baum".
+Hier: <body>
+  <h1>Hallo</h1>
+  <p>Willkommen!</p>
+</body>
+
+vereinfacht:
+document
+└── body
+    ├── h1
+    └── p
+
+> HTML liefert den Inhalt, das DOM macht ihn für JavaScript zugänglich und veränderbar.
+
+- what can I do with the "document" variable?
+
+zB: Ein Element erstellen und einfügen:
+const neuerAbsatz = document.createElement("p");
+neuerAbsatz.textContent = "Hallo!";
+document.body.append(neuerAbsatz);
+
+> document ist der Einstiegspunkt um Elemente zu finden, zu ändern, zu erstellen oder auf Ereignisse zu reagieren.
+
+Das document wird vom Browser bereit gestellt. Ich muss es nicht selbst definieren.
+
+Das document verändere ich nicht sondern nur Elemente im document.
+Ich sehe document nicht als Eintrag in meinem JS/HTML Code > "Der Browser stellt es bereit, wenn er deine Webseite lädt".
+
+- erstell mir Code, der die Farbe der Überschrift h1 verändert:
+<h1>Meine Überschrift</h1>
+
+<script>
+  const ueberschrift = document.querySelector("h1");
+  ueberschrift.style.color = "red";
+</script>
+
+> Ich brauche document, wenn ich mit JavaScript mit der geladenen Webseite arbeiten will. Nur so kann es HTML Elemente einbinden. Aber wenn mein Script nichts an der Webseite ändert, brauch ich es nicht.
