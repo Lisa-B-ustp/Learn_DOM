@@ -1,3 +1,5 @@
+-- Task 1
+
 - what is the "document" variable in javascript?
 
 const heading = document.querySelector("h1");
@@ -41,3 +43,36 @@ Ich sehe document nicht als Eintrag in meinem JS/HTML Code > "Der Browser stellt
 </script>
 
 > Ich brauche document, wenn ich mit JavaScript mit der geladenen Webseite arbeiten will. Nur so kann es HTML Elemente einbinden. Aber wenn mein Script nichts an der Webseite ändert, brauch ich es nicht.
+
+-- Task 2
+
+- How can I access the list "myList" in the html file?
+
+So könnte ich sie in JS auswählen:
+const myList = document.getElementById("myList");
+console.log(myList);
+
+So könnte ich die Einträge der Liste auslesen:
+const eintraege = myList.querySelectorAll("li");
+eintraege.forEach(eintrag => console.log(eintrag.textContent));
+
+> myList muss im HTML als ID gesetzt werden!
+> (hier:  <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+>    </ul>)
+
+- How can I change the list "myList" in the html file?
+
+zB Eintrag hinzufügen "Banane":
+const myList = document.getElementById("myList");
+
+const neuerEintrag = document.createElement("li");
+neuerEintrag.textContent = "Banane";
+myList.append(neuerEintrag);
+
+zB alles entfernen:
+myList.replaceChildren();
+
+> Änderungen betreffen die geladene Webseite! Es hat keinen Einfluss auf die dauerhafte HTML Datei. Nach einem Neuladen wird der ursprüngliche Inhalt angezeigt.
