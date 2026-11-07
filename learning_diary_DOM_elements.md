@@ -19,6 +19,7 @@ document
     └── p
 
 > HTML liefert den Inhalt, das DOM macht ihn für JavaScript zugänglich und veränderbar.
+> mit zB button = document.getElementById("submitBtn") greife ich auf den Button von HTML im JS zu.
 
 - what can I do with the "document" variable?
 
@@ -76,3 +77,49 @@ zB alles entfernen:
 myList.replaceChildren();
 
 > Änderungen betreffen die geladene Webseite! Es hat keinen Einfluss auf die dauerhafte HTML Datei. Nach einem Neuladen wird der ursprüngliche Inhalt angezeigt.
+
+-- Task 3
+
+- Which parameters of this DOM (button) element can be accessed from javascript?
+
+>Hier im HTML definiert:
+<button type="button" id="submitBtn">Submit</button>
+
+Er hat die ID "submitBtn", den Typ "button" und zeigt den Text „Submit“ an.
+In JS kann man viele Eigenschaften auslesen oder ändern.
+
+Häufig verwendete Eigenschaften:
+
+button.textContent – der angezeigte Text.
+> Hier button.textContent = "Abschicken";
+button.id – die ID des Buttons, 
+> Hier "submitBtn".
+button.type – seine Funktion: "button", "submit" oder "reset". 
+> Hier ist es "button".
+button.disabled – ob der Button deaktiviert ist.
+zB: button.disabled =   true; deaktiviert ihn; 
+                        false aktiviert ihn wieder.
+button.classList – CSS-Klassen hinzufügen oder entfernen.
+zB: button.classList.add("aktiv");
+button.style – Inline-CSS ändern.
+zB: button.style.backgroundColor = "lightblue";
+zB: button.form – Zugriff auf das Formular, zu dem der Button gehört. 
+> Hier ist es das Formular myForm.
+
+- What do these parameters do?
+
+> Hier: Er hat die ID "submitBtn", den Typ "button" und zeigt den Text „Submit“ an.
+
+zB: Code im HTML, der die Hintergrundfarbe des "buttons" verändert:
+<style>
+        #submitBtn {
+            background-color: lightblue;
+        }
+    </style>
+
+zB: Code im script.js, ändert die Anzeige, wenn man auf den Button klickt:
+    const button = document.getElementById("submitBtn");
+
+    button.addEventListener("click", () => {
+        button.textContent = "Abgeschickt!";
+    });
